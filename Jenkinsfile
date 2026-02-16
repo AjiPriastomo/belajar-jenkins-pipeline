@@ -1,11 +1,12 @@
 pipeline {
-    agent {
-        node {
-            label "local"
-        }
-    }
+    agent none
     stages {
         stage("Build"){
+            agent {
+                node {
+                    label "local"
+                }
+            }
             steps {
                 echo("Start Build")
                 bat("mvn clean compile test-compile")
@@ -13,6 +14,11 @@ pipeline {
             }
         }
         stage("Test"){
+            agent {
+                node {
+                    label "local"
+                }
+            }
             steps {
                 script {
                     def data = [
@@ -27,6 +33,11 @@ pipeline {
             }
         }
         stage("Deploy"){
+            agent {
+                node {
+                    label "local"
+                }
+            }
             steps {
                 echo("Deploy 1")
                 echo("Deploy 2")
@@ -50,6 +61,7 @@ pipeline {
         }
     }
 }
+
 
 
 
