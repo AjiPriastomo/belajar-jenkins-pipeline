@@ -1,7 +1,7 @@
 pipeline {
     agent {
         node {
-            label "windows || java17"
+            label "local"
         }
     }
     stages {
@@ -27,5 +27,6 @@ pipeline {
         }
     }
 }
+
 
 
