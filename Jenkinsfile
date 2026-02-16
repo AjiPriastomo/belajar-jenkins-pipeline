@@ -7,15 +7,6 @@ pipeline {
     stages {
         stage("Build"){
             steps {
-
-                script {
-                    def data = [
-                        "firstName" : "Aji",
-                        "lastName" : "Priastomo"
-                    ]
-                    writeJSON(file: "data.json", json: data)
-                }
-                
                 echo("Start Build")
                 bat("mvn clean compile test-compile")
                 echo("Finish Build")
@@ -23,8 +14,15 @@ pipeline {
         }
         stage("Test"){
             steps {
+                script {
+                    def data = [
+                        "firstName" : "Aji",
+                        "lastName" : "Priastomo"
+                    ]
+                    writeJSON(file: "data.json", json: data)
+                }
                 echo("Test 1")
-                echo("Test 2")
+                bat("mvn test")
                 echo("Test 3")
             }
         }
@@ -52,6 +50,7 @@ pipeline {
         }
     }
 }
+
 
 
 
