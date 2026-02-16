@@ -7,9 +7,9 @@ pipeline {
     stages {
         stage("Build"){
             steps {
-                echo("Build 1")
-                echo("Build 2")
-                echo("Build 3")
+                echo("Start Build")
+                bat("mvnm.cmd clean compile test-compile")
+                echo("Finish Build")
             }
         }
         stage("Test"){
@@ -43,6 +43,7 @@ pipeline {
         }
     }
 }
+
 
 
 
