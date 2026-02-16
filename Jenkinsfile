@@ -5,9 +5,37 @@ pipeline {
         }
     }
     stages {
-        stage("Hello"){
+        stage("Build"){
             steps {
-                echo("hello pipeline")
+                echo("Build 1")
+            }
+            steps {
+                echo("Build 2")
+            }
+            steps {
+                echo("Build 3")
+            }
+        }
+        stage("Test"){
+            steps {
+                echo("Test 1")
+            }
+            steps {
+                echo("Test 2")
+            }
+            steps {
+                echo("Test 3")
+            }
+        }
+        stage("Deploy"){
+            steps {
+                echo("Deploy 1")
+            }
+            steps {
+                echo("Deploy 2")
+            }
+            steps {
+                echo("Deploy 3")
             }
         }
     }
@@ -27,6 +55,7 @@ pipeline {
         }
     }
 }
+
 
 
 
