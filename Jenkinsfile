@@ -8,7 +8,7 @@ pipeline {
         stage("Build"){
             steps {
                 echo("Start Build")
-                bat("mvnm.cmd clean compile test-compile")
+                bat("mvn clean compile test-compile")
                 echo("Finish Build")
             }
         }
@@ -43,6 +43,7 @@ pipeline {
         }
     }
 }
+
 
 
 
