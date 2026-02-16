@@ -1,6 +1,18 @@
 pipeline {
     agent none
     stages {
+        stage("Prepare"){
+            agent {
+                node {
+                    label "local"
+                }
+            }
+            steps {
+                echo("Start Job : ${env.JOB_NAME}")
+                echo("Start Build : ${env.BUILD_NUMBER}")
+                echo("Branch Name : ${env.BRANCH_NAME}")
+            }
+        }
         stage("Build"){
             agent {
                 node {
@@ -61,6 +73,7 @@ pipeline {
         }
     }
 }
+
 
 
 
