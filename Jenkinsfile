@@ -16,6 +16,20 @@ pipeline {
         timeout(time: 10, unit : 'MINUTES')
     }
     stages {
+        stage("Parameter"){
+            agent {
+                node {
+                    label "local"
+                }
+            }
+            steps {
+                echo "Hello : ${params.NAME}"
+                echo "your description : ${params.DESCRIPTION}"
+                echo "Your Social media : ${params.SOCIAL_MEDIA}"
+                echo "Need to Deploy : ${params.DEPLOY}"
+                echo "Your Secret : ${params.SECRET}"
+            }
+        }
         stage("Prepare"){
             agent {
                 node {
@@ -92,6 +106,7 @@ pipeline {
         }
     }
 }
+
 
 
 
