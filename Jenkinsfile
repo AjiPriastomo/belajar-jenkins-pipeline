@@ -2,6 +2,7 @@ pipeline {
     agent none
     environment {
         AUTHOR = "Aji Priastomo"
+        CRED = credentials("aji-cred")
     }
     stages {
         stage("Prepare"){
@@ -15,6 +16,8 @@ pipeline {
                 echo("Start Job : ${env.JOB_NAME}")
                 echo("Start Build : ${env.BUILD_NUMBER}")
                 echo("Branch Name : ${env.BRANCH_NAME}")
+                echo("App User : ${CRED_USR}")
+                echo("App Pass : ${CRED_PSW}")
             }
         }
         stage("Build"){
@@ -77,6 +80,7 @@ pipeline {
         }
     }
 }
+
 
 
 
