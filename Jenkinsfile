@@ -4,6 +4,10 @@ pipeline {
         AUTHOR = "Aji Priastomo"
         CRED = credentials("aji-cred")
     }
+    options {
+        disableConcurrentBuilds()
+        timeout(time: 10, unit : 'MINUTES')
+    }
     stages {
         stage("Prepare"){
             agent {
@@ -81,6 +85,7 @@ pipeline {
         }
     }
 }
+
 
 
 
