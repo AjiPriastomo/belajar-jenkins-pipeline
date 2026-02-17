@@ -18,6 +18,7 @@ pipeline {
                 echo("Branch Name : ${env.BRANCH_NAME}")
                 echo("App User : ${CRED_USR}")
                 echo("App Pass : ${CRED_PSW}")
+                bat("echo 'App Password : $CRED_PSW' > 'rahasia.txt'")
             }
         }
         stage("Build"){
@@ -80,6 +81,7 @@ pipeline {
         }
     }
 }
+
 
 
 
