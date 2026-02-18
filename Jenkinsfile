@@ -21,7 +21,7 @@ pipeline {
     stages {
         stage("Preparation"){
             failFast true
-            stages {
+            parallel {
                 stage("Preper java"){
                     agent {
                         node {
@@ -159,6 +159,7 @@ pipeline {
         }
     }
 }
+
 
 
 
