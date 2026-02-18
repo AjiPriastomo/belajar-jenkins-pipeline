@@ -95,9 +95,8 @@ pipeline {
                 }
             }
             steps {
-                echo("Deploy 1")
-                echo("Deploy 2")
-                echo("Deploy 3")
+                echo("Deploy in ${TARGET_ENV}")
+    
             }
         }
     }
@@ -117,6 +116,7 @@ pipeline {
         }
     }
 }
+
 
 
 
