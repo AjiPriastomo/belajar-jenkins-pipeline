@@ -11,9 +11,9 @@ pipeline {
         choice(name:"SOCIAL_MEDIA", choices : ['Intagram', 'Facebook'], description: "Which Social Media" )
         password(name:"SECRET", defaultValue :"Guest", description: "Encrypt Key" )
     }
-    triggers {
-        cron(" */10 * * * *")
-    }
+    //triggers {
+        //cron(" */10 * * * *")
+    //}
     options {
         disableConcurrentBuilds()
         timeout(time: 10, unit : 'MINUTES')
@@ -117,6 +117,7 @@ pipeline {
         }
     }
 }
+
 
 
 
