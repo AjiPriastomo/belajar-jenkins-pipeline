@@ -20,14 +20,20 @@ pipeline {
     }
     stages {
         stage("Preparation"){
-            agent {
-                node {
-                    label "local"
-                }
-            }
+            failFast true
             stages {
                 stage("Preper java"){
+                    agent {
+                        node {
+                            label "local"
+                        }
+                    }
                     steps {
+                        agent {
+                            node {
+                                label "local"
+                            }
+                        }
                         echo("Prepare java")
                         sleep(5)
                     }
@@ -153,6 +159,7 @@ pipeline {
         }
     }
 }
+
 
 
 
