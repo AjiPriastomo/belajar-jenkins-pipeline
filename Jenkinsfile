@@ -85,7 +85,7 @@ pipeline {
                 message "can we deploy ?"
                 ok "Yes, of course"
                 submitter "Jamal"
-                paramaters {
+                parameters {
                     choice(name:"TARGET_ENV", choices : ['DEV', 'QA', 'PROD'], description: "Which Environment ?" )
                 }
             }
@@ -117,6 +117,7 @@ pipeline {
         }
     }
 }
+
 
 
 
