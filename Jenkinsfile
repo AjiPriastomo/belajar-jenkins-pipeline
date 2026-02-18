@@ -19,6 +19,25 @@ pipeline {
         timeout(time: 10, unit : 'MINUTES')
     }
     stages {
+        stage("Preparation"){
+            agent {
+                node {
+                    label "local"
+                }
+            }
+            stages {
+                stage("Preper java"){
+                    steps {
+                        echo("Prepare java")
+                    }
+                }
+                stage("Preper Maven"){
+                    steps {
+                        echo("Prepare Maven")
+                    }
+                }
+            }
+        }
         stage("Parameter"){
             agent {
                 node {
@@ -132,6 +151,7 @@ pipeline {
         }
     }
 }
+
 
 
 
