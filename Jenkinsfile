@@ -29,16 +29,16 @@ pipeline {
                         }
                     }
                     steps {
-                        agent {
-                            node {
-                                label "local"
-                            }
-                        }
                         echo("Prepare java")
                         sleep(5)
                     }
                 }
                 stage("Preper Maven"){
+                    agent {
+                        node {
+                            label "local"
+                        }
+                    }
                     steps {
                         echo("Prepare Maven")
                         sleep(5)
@@ -159,6 +159,7 @@ pipeline {
         }
     }
 }
+
 
 
 
