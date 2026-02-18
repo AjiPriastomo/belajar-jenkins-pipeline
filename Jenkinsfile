@@ -29,11 +29,13 @@ pipeline {
                 stage("Preper java"){
                     steps {
                         echo("Prepare java")
+                        sleep(5)
                     }
                 }
                 stage("Preper Maven"){
                     steps {
                         echo("Prepare Maven")
+                        sleep(5)
                     }
                 }
             }
@@ -151,6 +153,7 @@ pipeline {
         }
     }
 }
+
 
 
 
