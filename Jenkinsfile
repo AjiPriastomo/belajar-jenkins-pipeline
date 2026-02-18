@@ -81,6 +81,11 @@ pipeline {
             }
         }
         stage("Deploy"){
+            input {
+                message "can we deploy ?"
+                ok "Yes, of course"
+                submitter "Jamal"
+            }
             agent {
                 node {
                     label "local"
@@ -109,6 +114,7 @@ pipeline {
         }
     }
 }
+
 
 
 
