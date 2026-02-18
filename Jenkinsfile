@@ -99,6 +99,22 @@ pipeline {
     
             }
         }
+        stage("Release"){
+            when {
+                expression{
+                    return params.DEPLOY
+                }
+            }
+            agent {
+                node {
+                    label "local"
+                }
+            }
+            steps {
+                echo("Release it")
+            }
+        }
+        
     }
 
     post {
@@ -116,6 +132,7 @@ pipeline {
         }
     }
 }
+
 
 
 
