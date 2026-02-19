@@ -31,19 +31,18 @@ pipeline {
                         values "32", "64"
                     }
                 }
-            }
-
-            stages {
-                stage("OS Setup"){
-                    agent {
-                        node {
-                            label "local"
+                stages {
+                    stage("OS Setup"){
+                        agent {
+                            node {
+                                label "local"
+                            }
                         }
                     }
-                }
-                steps{
-                    echo("setup : ${OS} ${Arc}")
-                }
+                    steps{
+                        echo("setup : ${OS} ${Arc}")
+                    }
+            }
             }
         }
         stage("Preparation"){
@@ -186,6 +185,7 @@ pipeline {
         }
     }
 }
+
 
 
 
