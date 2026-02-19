@@ -19,6 +19,33 @@ pipeline {
         timeout(time: 10, unit : 'MINUTES')
     }
     stages {
+        stage("OS Setup"){
+            matrix{
+                axes{
+                    axis{
+                        name "OS"
+                        value "Linux", "Windows", "Mac"
+                    }
+                    axis{
+                        name "Arc"
+                        value "32", "64"
+                    }
+                }
+            }
+
+            stages {
+                stage("OS Setup"){
+                    agent {
+                        node {
+                            label "local"
+                        }
+                    }
+                }
+                steps{
+                    echo("setup : ${OS} ${Arc}")
+                }
+            }
+        }
         stage("Preparation"){
             failFast true
             parallel {
@@ -159,6 +186,7 @@ pipeline {
         }
     }
 }
+
 
 
 
