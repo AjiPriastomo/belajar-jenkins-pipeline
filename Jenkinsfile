@@ -38,11 +38,11 @@ pipeline {
                                 label "local"
                             }
                         }
+                        steps{
+                            echo("setup : ${OS} ${Arc}")
+                        }
                     }
-                    steps{
-                        echo("setup : ${OS} ${Arc}")
-                    }
-            }
+                }
             }
         }
         stage("Preparation"){
@@ -185,6 +185,7 @@ pipeline {
         }
     }
 }
+
 
 
 
